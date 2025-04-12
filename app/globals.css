@@ -264,8 +264,59 @@ footer .links-container > div {
   font-size: 2rem;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 8rem 0;
+}
+
+.page-container  > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /** Portal Overlay  */
 
+.portal-container {
+  /* font-size: 2rem; */
+  position: fixed; /* lock to screen */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  display: grid;
+  place-items: center;
+}
+
+.portal-underlay {
+  position: absolute;
+  inset: 0;
+  /* position with respect to the parent (our fixed container) and inset 0 from all edges  */
+  z-index: 0;
+  opacity: 0.7;
+  background-color: #030615;
+  border: none;
+  padding: none;
+}
+
+.portal-content {
+  position: absolute;
+  /* position with respect to the parent */
+  pointer-events: none;
+  /* We click through it to the underlay that will close the container.  */
+  z-index: 1005;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Start it off halfway down and half way across the page,then move it back in that direction by 50%  */
+  max-width: 80vw;
+  max-height: 80vh;
+}
 .img-button {
   height: fit-content;
   width: fit-content;

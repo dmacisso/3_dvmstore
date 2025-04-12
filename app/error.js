@@ -11,7 +11,7 @@ export default function Error(props) {
     console.log(typeof error);
   }, [error]);
   return (
-    <div>
+    <div className="page-container">
       <h3>Something went wrong 😢 </h3>
       <div className="">
         <button onClick={reset} className="">
