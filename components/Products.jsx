@@ -6,13 +6,13 @@ import Portal from './Portal';
 export default function Products() {
   const [portalImage, setPortalImage] = useState(null);
   const stickerDescriptions = {
-    CSS_HTML_Javascript: 'Core...',
-    Docker: 'Platform..',
-    Firebase: 'Cloud ...',
-    NextJS: 'React-based...',
-    NodeJS: 'JavaScript runtime',
-    PostgreSQL: 'Robust',
-    ReactJS: 'JavaScript library',
+    CSS_HTML_Javascript: 'Core web technologies for structure, styling, interactively',
+    Docker: 'Platform for containerizing, deploying, and scaling applications.',
+    Firebase: 'Cloud platform for databases, authentication, and app backend',
+    NextJS: 'React-based framework for server-side rendering and static sites',
+    NodeJS: 'JavaScript runtime for building scalable backend applications',
+    PostgreSQL: 'Robust open-sourced database with advanced querying capabilities',
+    ReactJS: 'JavaScript library for building interactive user interfaces',
   };
 
   const stickers = Object.keys(stickerDescriptions);
