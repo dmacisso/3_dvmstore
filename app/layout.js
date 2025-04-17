@@ -4,6 +4,7 @@ import Head from './head';
 import Link from 'next/link';
 import Cart from '@/components/Cart';
 import EmailInput from '@/components/EmailInput';
+import ProductsProvider from '@/context/ProductContext';
 
 // site metadata site for SEO
 export const metadata = {
@@ -14,71 +15,79 @@ export const metadata = {
 // The children comes from what is wrapped by this layout in page(s).js
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Head />
-      <body>
-        {/* portal for modal overlay */}
-        <div id="portal" />
-        <div id="app">
-          <header>
-            <div className="header-content">
-              <Link href="/">
-                <h1>DvmStore</h1>
-              </Link>
-              <h5 className="mid-text">- Cool stuff for cool people -</h5>
-              <Cart />
-            </div>
-          </header>
-          <main>{children}</main>
-          <div className="hr" />
-          <footer>
-            <div className="email-container">
-              <h5>
-                Get a sneak peak at new additions to the store, special offers,
-                and so much more
-              </h5>{' '}
-              <EmailInput />
-            </div>
-            <div className="links-container">
-              <div className="">
-                {/*  for my portfolio website */}
-                <h3>DVM</h3>
-                <Link href={'/'}>DVM Hub</Link>
-                <Link href={'/'}>Roadmap</Link>
+    <ProductsProvider>
+      <html lang="en">
+        <Head />
+        <body>
+          {/* portal for modal overlay */}
+          <div id="portal" />
+          <div id="app">
+            <header>
+              <div className="header-content">
+                <Link href="/">
+                  <h1>DvmStore</h1>
+                </Link>
+                <h5 className="mid-text">- Cool stuff for cool people -</h5>
+                <Cart />
               </div>
-              <div className="">
-                <h3>Store</h3>
-                <Link href={'/'}>Home</Link>
-                <Link href={'/cart'}>Cart</Link>
+            </header>
+            <main>{children}</main>
+            <div className="hr" />
+            <footer>
+              <div className="email-container">
+                <h5>
+                  Get a sneak peak at new additions to the store, special
+                  offers, and so much more
+                </h5>{' '}
+                <EmailInput />
               </div>
-              <div className="">
-                <h3>Support</h3>
-                <Link href={'/contact'}>Contact</Link>
-                <Link href={'/faq'}>FAQs</Link>
+              <div className="links-container">
+                <div className="">
+                  {/*  for my portfolio website */}
+                  <h3>DVM</h3>
+                  <Link href={'/'}>DVM Hub</Link>
+                  <Link href={'/'}>Roadmap</Link>
+                </div>
+                <div className="">
+                  <h3>Store</h3>
+                  <Link href={'/'}>Home</Link>
+                  <Link href={'/cart'}>Cart</Link>
+                </div>
+                <div className="">
+                  <h3>Support</h3>
+                  <Link href={'/contact'}>Contact</Link>
+                  <Link href={'/faq'}>FAQs</Link>
+                </div>
               </div>
-            </div>
-            <div className="socials">
-              <p>
-                &copy;{' '}
-                <a href="https://github.com/dmacisso" target="_blank">
-                  {' '}
-                  DVMacisso{' '}
-                </a>
-                2025 <br /> Built with NextJS &{' '}
-                <a target="_blank" href="https://www.fantacss.smoljames.com">
-                  FantaCSS
-                </a>{' '}
-                🔥
-              </p>
-              <div className="social-links">
-                <Link target='_blank' href={'/'} ><i className="fa-brands fa-github"></i></Link>
-                <Link target='_blank' href={'/'} ><i className="fa-brands fa-youtube"></i></Link>
-                <Link target='_blank' href={'/'} ><i className="fa-brands fa-linkedin"></i></Link>
+              <div className="socials">
+                <p>
+                  &copy;{' '}
+                  <a href="https://github.com/dmacisso" target="_blank">
+                    {' '}
+                    DVMacisso{' '}
+                  </a>
+                  2025 <br /> Built with NextJS &{' '}
+                  <a target="_blank" href="https://www.fantacss.smoljames.com">
+                    FantaCSS
+                  </a>{' '}
+                  🔥
+                </p>
+                <div className="social-links">
+                  <Link target="_blank" href={'/'}>
+                    <i className="fa-brands fa-github"></i>
+                  </Link>
+                  <Link target="_blank" href={'/'}>
+                    <i className="fa-brands fa-youtube"></i>
+                  </Link>
+                  <Link target="_blank" href={'/'}>
+                    <i className="fa-brands fa-linkedin"></i>
+                  </Link>
+                </div>
               </div>
-            </div>
-          </footer>
-        </div>
-      </body>
-    </html>
+            </footer>
+          </div>
+        </body>
+      </html>
+    </ProductsProvider>
   );
 }
