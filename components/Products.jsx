@@ -6,11 +6,11 @@ import { useProducts } from '@/context/ProductContext';
 
 export default function Products(props) {
   const { planner, stickers } = props;
-  console.log(planner);
-  console.log(stickers);
+  // console.log(planner);
+  // console.log(stickers);
   const [portalImage, setPortalImage] = useState(null);
 
-  const { handleAddProducts, cart } = useProducts();
+  const { handleIncrementProduct, cart } = useProducts();
   console.log('Cart', cart);
 
   if (!stickers.length || !planner) {
@@ -81,10 +81,10 @@ export default function Products(props) {
             </ul>
             <div className="purchase-btns">
               <button
-              // onClick={() => {
-              //   const plannerPriceId = planner.default_price;
-              //   handleIncrementProduct(plannerPriceId, 1, planner);
-              // }}
+                onClick={() => {
+                  const plannerPriceId = planner.default_price;
+                  handleIncrementProduct(plannerPriceId, 1);
+                }}
               >
                 Add to cart
               </button>
@@ -128,7 +128,14 @@ export default function Products(props) {
                   </h4>
                 </div>
 
-                <button>Add to cart</button>
+                <button
+                  onClick={() => {
+                    const stickerPriceId = sticker.default_price;
+                    handleIncrementProduct(stickerPriceId, 1);
+                  }}
+                >
+                  Add to cart
+                </button>
               </div>
             );
           })}

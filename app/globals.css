@@ -41,6 +41,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  padding-right: 0.5rem;
+}
+
+.cart-num {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  color: #030615;
+  font-family: 'Grenze', serif;
 }
 
 .header-content h1 {
@@ -55,7 +65,8 @@ header {
 }
 
 .header-content i {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--color-primary);
 }
 
 .mid-text {
@@ -108,9 +119,9 @@ header {
   width: 100%;
   gap: 1rem;
   padding: 2rem;
+  /* background: white; */
   background: rgb(244, 244, 244);
   opacity: 90%;
-  /* box-shadow: 5px 5px 10px rgb(221, 232, 235); */
   box-shadow: 0 0 10px 5px rgb(221, 232, 235);
 }
 
@@ -121,7 +132,8 @@ header {
 }
 .cta-btns-container > div div:last-of-type {
   display: flex;
-  align-content: start;
+  align-items: center;
+  /* align-content: start; */
   gap: 1rem;
 }
 

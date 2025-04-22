@@ -3,7 +3,8 @@ import Products from '@/components/Products';
 
 export async function getProducts() {
   try {
-    const response = await fetch('http://localhost:3000/api/products');
+    const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const response = await fetch(baseURL + '/api/products');
     if (!response.ok) {
       throw new Error(`Failed to fetch products: ${response.statusText}`);
     }
