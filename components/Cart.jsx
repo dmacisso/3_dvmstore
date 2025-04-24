@@ -12,21 +12,23 @@ export default function Cart() {
   //* since we are calculating a number of products, the default value is 0
   //* So we map over every item in the array and do something, and whatever is returned from one iteration is added to the accumulator. Note: In the example below, the reducer is iterating over the array (Object.keys(cart)) and curr is the iterator, pointing to product_id of each item in the array.
   const numProducts = Object.keys(cart).reduce((acc, curr, currIndex) => {
-    const numProduct = cart[curr];
-    // console.log("Cart: ", cart)
+    const numProduct = cart[curr].quantity;
+    console.log("Cart: ", cart)
     // console.log("Current: ", curr)
     const sum = acc + numProduct;
     return sum;
   }, 0);
-  console.log('Total Number of Products: ', numProducts);
+  // console.log('Total Number of Products: ', numProducts);
 
   return (
     <div>
       <Link className="unstyled-button" href={'/cart'}>
         <i className="fa-solid fa-bag-shopping"></i>
-        <div className="cart-num">
-          <p>{numProducts}</p>
-        </div>
+        {numProducts > 0 && (
+          <div className="cart-num">
+            <p>{numProducts}</p>
+          </div>
+        )}
       </Link>
     </div>
   );

@@ -83,7 +83,8 @@ export default function Products(props) {
               <button
                 onClick={() => {
                   const plannerPriceId = planner.default_price;
-                  handleIncrementProduct(plannerPriceId, 1);
+                  handleIncrementProduct(plannerPriceId, 1, planner);
+                  //* passing in id, quantity, and data - which is, in this case, "planner" that we destructed from props above
                 }}
               >
                 Add to cart
@@ -131,7 +132,8 @@ export default function Products(props) {
                 <button
                   onClick={() => {
                     const stickerPriceId = sticker.default_price;
-                    handleIncrementProduct(stickerPriceId, 1);
+                    handleIncrementProduct(stickerPriceId, 1, sticker);
+                     //* passing in id, quantity, and data - which is, in this case, "sticker" that we destructed from props above
                   }}
                 >
                   Add to cart

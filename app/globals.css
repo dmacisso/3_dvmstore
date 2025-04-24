@@ -28,7 +28,7 @@ header {
   width: 100%;
   background: white;
   z-index: 1000;
-  padding: 1.5rem 1 rem;
+  padding: 1.5rem 1rem;
 }
 
 .header-content {
@@ -60,12 +60,11 @@ header {
 
 .header-content a {
   text-decoration: none;
-  /* from FantaCSS */
-  color: var(--color-primary);
 }
 
 .header-content i {
   font-size: 1.4rem;
+  /* from FantaCSS */
   color: var(--color-primary);
 }
 
@@ -74,6 +73,7 @@ header {
 }
 
 /** main app */
+
 .banner-images {
   min-height: 90vh;
   overflow: hidden;
@@ -108,6 +108,7 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 .cta-btns-container h1 {
   font-size: 2rem;
 }
@@ -130,10 +131,10 @@ header {
   flex-direction: column;
   align-items: center;
 }
+
 .cta-btns-container > div div:last-of-type {
   display: flex;
   align-items: center;
-  /* align-content: start; */
   gap: 1rem;
 }
 
@@ -217,17 +218,61 @@ main,
   padding-right: 0.1rem;
 }
 
-/** footer styles */
+/** cart styles */
+
+.cart-section {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.cart-item img {
+  width: 30%;
+  height: fit-content;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cart-item-info input {
+  width: 100px;
+}
+
+.checkout-container {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* footer styles */
 .hr {
   height: 1px;
-  /* from FantaCSS */
   background: var(--border-primary);
 }
 
 footer {
   padding: 4rem 1rem;
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, mixmax(0, 1fr));
   gap: 4rem;
 }
 
@@ -252,13 +297,12 @@ footer {
 .email-container div button {
   height: 100%;
   padding: 0.25rem 1rem;
-  /* make sure text doesn't drop onto a second line  */
   white-space: nowrap;
 }
 
 footer .links-container {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, mixmax(0, 1fr));
   gap: 2rem;
 }
 
@@ -300,49 +344,43 @@ footer .links-container > div {
   gap: 1rem;
 }
 
-/** Portal Overlay  */
+/* portal overlay */
 
 .portal-container {
-  /* font-size: 2rem; */
-  position: fixed; /* lock to screen */
+  position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1001;
-  display: grid;
-  place-items: center;
 }
 
 .portal-underlay {
   position: absolute;
   inset: 0;
-  /* position with respect to the parent (our fixed container) and inset 0 from all edges  */
   z-index: 0;
   opacity: 0.7;
-  background-color: #030615;
+  background: #030615;
   border: none;
   padding: none;
 }
 
 .portal-content {
   position: absolute;
-  /* position with respect to the parent */
   pointer-events: none;
-  /* We click through it to the underlay that will close the container.  */
   z-index: 1005;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Start it off halfway down and half way across the page,then move it back in that direction by 50%  */
   max-width: 80vw;
   max-height: 80vh;
+  display: grid;
+  place-items: center;
 }
+
 .img-button {
   height: fit-content;
   width: fit-content;
-
-  /* undo FantaCSS */
   padding: 0;
   border: none;
   box-shadow: none;
@@ -355,12 +393,13 @@ footer .links-container > div {
   box-shadow: none;
 }
 
-/** Break Points */
+/* break points */
 
 @media (min-width: 640px) {
   .header-content {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
   .mid-text {
     display: block;
     margin: 0 auto;
@@ -378,18 +417,23 @@ footer .links-container > div {
     gap: 2rem;
     padding: 1rem;
   }
+
   .cta-btns-container button {
     font-size: 1.4rem;
     padding: 0.5rem 1.5rem;
   }
 
   .section-header {
-    margin: 4rem auto 3rem;
+    margin: 4rem auto 3rem auto;
   }
 
   .sticker-container {
     gap: 1rem 2rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cart-item {
+    gap: 2rem;
   }
 }
 
@@ -402,9 +446,11 @@ footer .links-container > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
   }
+
   .email-container {
     padding-right: 4rem;
   }
+
   .socials {
     grid-column: span 2 / span 2;
   }
@@ -420,9 +466,7 @@ footer .links-container > div {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  footer {
-    .links-container {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  footer .links-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
