@@ -9,7 +9,7 @@ export default function ProductsProvider(props) {
   const [cart, setCart] = useState({});
 
   //* handler functions
-  function handleIncrementProduct(price_id, num, data) {
+  function handleIncrementProduct(price_id, num, data, noIncrement = false) {
     const newCart = {
       //* cart, a "state" value, is immutable so spread it out and create a duplicate.
       ...cart,
@@ -19,7 +19,7 @@ export default function ProductsProvider(props) {
       // newCart[price_id] = newCart[price_id] + num;
       newCart[price_id] = {
         ...data,
-        quantity: newCart[price_id]?.quantity + num,
+        quantity: noIncrement ? num : newCart[price_id]?.quantity + num,
         //* tracking quantity by adding num to it. If exists, optionally chain on previous quantity
       };
     } else {
@@ -31,7 +31,7 @@ export default function ProductsProvider(props) {
     }
 
     //* if user set num to 0; thus newCart[price_id] === 0, so remove product form the cart
-    if (newCart[price_id].quantity === 0) {
+    if (Number(newCart[price_id].quantity <= 0)) {
       delete newCart[price_id];
     }
 

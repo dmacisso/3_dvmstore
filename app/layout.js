@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             <header>
               <div className="header-content">
                 <Link href="/">
-                  <h1>DvmStore</h1>
+                  <h1 className="header-logo">DvmStore</h1>
                 </Link>
                 <h5 className="mid-text">- Cool stuff for cool people -</h5>
                 <Cart />
@@ -45,18 +45,22 @@ export default function RootLayout({ children }) {
                 <div className="">
                   {/*  for my portfolio website */}
                   <h3>DVM</h3>
-                  <Link href={'/'}>DVM Hub</Link>
-                  <Link href={'/'}>Roadmap</Link>
+                  <Link target="_blank" href={'https://github.com/dmacisso'}>
+                    DVM Hub
+                  </Link>
+                  <Link target="_blank" href={'/'}>
+                    Roadmap
+                  </Link>
                 </div>
                 <div className="">
                   <h3>Store</h3>
-                  <Link href={'/'}>Home</Link>
-                  <Link href={'/cart'}>Cart</Link>
+                  <Link target="_blank" href={'/'}>Home</Link>
+                  <Link target="_blank" href={'/cart'}>Cart</Link>
                 </div>
                 <div className="">
                   <h3>Support</h3>
-                  <Link href={'/contact'}>Contact</Link>
-                  <Link href={'/faq'}>FAQs</Link>
+                  <Link target="_blank" href={'/contact'}>Contact</Link>
+                  <Link target="_blank" href={'/faq'}>FAQs</Link>
                 </div>
               </div>
               <div className="socials">
@@ -73,13 +77,18 @@ export default function RootLayout({ children }) {
                   🔥
                 </p>
                 <div className="social-links">
-                  <Link target="_blank" href={'/'}>
+                  <Link target="_blank" href={'https://github.com/dmacisso'}>
                     <i className="fa-brands fa-github"></i>
                   </Link>
-                  <Link target="_blank" href={'/'}>
+                  <Link
+                    target="_blank"
+                    href={
+                      'https://www.youtube.com/channel/UCa-F9p4fHRAhYe1C6_yJExg'
+                    }
+                  >
                     <i className="fa-brands fa-youtube"></i>
                   </Link>
-                  <Link target="_blank" href={'/'}>
+                  <Link target="_blank" href={'https://www.linkedin.com/in/david-macisso-2135787/'}>
                     <i className="fa-brands fa-linkedin"></i>
                   </Link>
                 </div>

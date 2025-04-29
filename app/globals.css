@@ -9,12 +9,24 @@ body {
   position: relative;
 }
 
+p.error {
+  color: red;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
 .header-content,
 section,
 footer {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+}
+
+.header-logo {
+  padding: 0 0.3rem 0.2rem;
+  border-radius: 6%;
 }
 
 section {
