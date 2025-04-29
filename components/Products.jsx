@@ -11,7 +11,7 @@ export default function Products(props) {
   const [portalImage, setPortalImage] = useState(null);
 
   const { handleIncrementProduct, cart } = useProducts();
-  console.log('Cart', cart);
+  // console.log('Cart', cart);
 
   if (!stickers.length || !planner) {
     return null;

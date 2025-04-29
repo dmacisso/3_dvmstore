@@ -14,7 +14,7 @@ export default function Cart() {
   //* So we map over every item in the array and do something, and whatever is returned from one iteration is added to the accumulator. Note: In the example below, the reducer is iterating over the array (Object.keys(cart)) and curr is the iterator, pointing to product_id of each item in the array.
   const numProducts = Object.keys(cart).reduce((acc, curr, currIndex) => {
     const numProduct = cart[curr].quantity;
-    console.log('Cart: ', cart);
+    // console.log('Cart: ', cart);
     // console.log("Current: ", curr)
     const sum = acc + Number(numProduct);
     return sum;

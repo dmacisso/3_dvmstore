@@ -8,7 +8,6 @@ export default function Error(props) {
   const { error, reset } = props;
 
   useEffect(() => {
-    console.log(typeof error);
   }, [error]);
   return (
     <div className="page-container">
