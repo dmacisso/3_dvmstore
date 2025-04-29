@@ -1,18 +1,18 @@
 import Stripe from 'stripe'; //* import the Stripe class from the installed stripe package.
 import '../../../envConfig.js';
 
-const API_KEY = process.env.STRIPE_SECRET_KEY;
-const stripe = new Stripe(API_KEY);
+const API_KEY = process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
+const stripe = new Stripe(API_KEY, {
+  apiVersion: '2023-10-16',
+});
 
 export async function GET() {
   try {
     // Fetch all the active products from stripe
     const products = await stripe.products.list({ active: true });
-    
 
     // Fetch all the prices (price ids) that are active. This is the unique key because a specific product
     const prices = await stripe.prices.list({ active: true });
-    
 
     // my have variations of features with a different price and priceId for each.
     // Combine the products and the associated prices.
@@ -20,12 +20,12 @@ export async function GET() {
       const productPrices = prices.data.filter((price) => {
         return price.product === product.id;
       });
-      
+
       return {
         ...product,
         prices: productPrices.map((price) => {
           return {
-            id: price.id,  //* a particular variant of the product.
+            id: price.id, //* a particular variant of the product.
             unit_amount: price.unit_amount,
             currency: price.currency,
             recurring: price.recurring,
